@@ -1,0 +1,39 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: learn-online
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.163.130:3306/supcrf_edu?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+shiro-redis:
+  enabled: true
+  redis-manager:
+    host: 192.168.163.130:6379
+    password: 123456
+supcrf:
+  jwt:
+    secret: f4e2e52034348f86b67cde581c0f9eb5
+    expire: 604800
+    header: Authorization
+minio:
+  endpoint: http://192.168.163.130/
+  port: 9000
+  accessKey: supcrf
+  secretKey: crf123..
+  secure: false
+  bucketName: "edu"
+  configDir: "/home/supcrf/minio/data"
